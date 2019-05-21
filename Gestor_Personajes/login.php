@@ -34,6 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+  	<link rel="stylesheet" type="text/css" href="estilo_login.css">
 </head>
 <body>
 	<h1>Iniciar Sesión</h1>
