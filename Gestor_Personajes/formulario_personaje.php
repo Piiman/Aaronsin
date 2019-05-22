@@ -1,6 +1,4 @@
-<?php
-include("valida.php");
-?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -53,6 +51,12 @@ include("valida.php");
   Habilidades:<br>
   <input type="text" name="habilidades" placeholder="Habilidades">
   <br>
+  Sube una imagen de tu personaje!<br>
+  <br><br>
+  <form  name="subida-imagen" type="POST" enctype="multipart/formdata">
+    <input type="file" name="imagen"/>
+     <input type="submit" name="subir-imagen" value="Enviar Imagen"/>
+  </form>  
   <br><br>
   <input type="submit" value="Guardar">
 </p>
@@ -61,3 +65,42 @@ include("valida.php");
 
 </body>
 </html>
+<?php
+include("valida.php");
+
+
+
+
+/*
+// Tratado de ficheros subidos con php
+echo $_FILES['imagen1']['name'];
+echo $_FILES['imagen1']['tmp_name'];
+echo $_FILES['imagen1']['type'];
+echo $_FILES['imagen1']['size'];
+echo $_FILES['imagen1']['error'];
+
+//Filtrado de los tipos de ficheros subidos con html
+
+$extensiones = array(0=>'image/jpg',1=>'image/jpeg',2=>'image/png');
+$max_tamanyo = 1024 * 1024 * 8;
+if ( in_array($_FILES['imagen1']['type'], $extensiones) ) {
+     echo 'Es una imagen';
+     if ( $_FILES['imagen1']['size']< $max_tamanyo ) {
+          echo 'Pesa menos de 1 MB';
+     }
+}
+
+// Escritura de imágenes en la carpeta servidor
+$ruta_indexphp = dirname(realpath(__FILE__));
+$ruta_fichero_origen = $_FILES['imagen1']['tmp_name'];
+$ruta_nuevo_destino = $ruta_indexphp . '/imagenes/' . $_FILES['imagen1']['name'];
+if ( in_array($_FILES['imagen1']['type'], $extensiones) ) {
+     echo 'Es una imagen';
+     if ( $_FILES['imagen1']['size']< $max_tamanyo ) {
+          echo 'Pesa menos de 1 MB';
+          if( move_uploaded_file ( $ruta_fichero_origen, $ruta_nuevo_destino ) ) {
+               echo 'Fichero guardado con éxito';
+          }
+     }
+} */
+?>

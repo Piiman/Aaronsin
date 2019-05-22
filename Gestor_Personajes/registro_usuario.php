@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$password2 = $_POST['vpassword'];
 	$errores = '';
 	if (empty($usuario) or empty($password) or empty($password2)) {
-		$errores .= '<li>Por favor rellena todos los datos</li>';
+		$errores .= <li>'Por favor rellena todos los datos'</li>;
 	} else {
 		try {
 			$conexion = new PDO('mysql:host=localhost;dbname=gsp', 'root', '');
@@ -37,19 +37,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 //require 'registro_usuario.php';
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8/">
+  <link rel="stylesheet" type="text/css" href="estilo_registro_usuario.css">
 	<title>Document</title>
 </head>
 <body>
 	<h1>Registro</h1>
 	<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" class="formulario" name="login">
-		<input type="text" name="usuario" placeholder="Usuario"><br>
-		<input type="password" name="password" placeholder="Contrasena"><br>
-		<input type="password" name="vpassword" placeholder="VContrasena"><br>
-		<button type="button" onclick="login.submit()">Registrar</button><br>
+		Introduce un nombre de usuario válido <input type="text" name="usuario" placeholder="Usuario"><br>
+		Introduce una contraseña <input type="password" name="password" placeholder="Contraseña"><br>
+		Repite tu contraseña <input type="password" name="vpassword" placeholder="Confirma Contraseña"><br><br>
+		<button class="boton" type="button" onclick="login.submit()">Registrar</button><br>
 		<?php if(!empty($errores)): ?>
 				<div>
 					<ul>
@@ -58,8 +60,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				</div>
 		<?php endif; ?>
 	</form>
+	 <form  name="subida-imagen" type="POST" enctype="multipart/formdata">
+    <input type="file" name="imagen"/>
+     <input type="submit" name="subir-imagen" value="Enviar Imagen"/>
+  </form> 
 	<p>
-		<a href="login.php">Iniciar Seción</a>
+		<a href="login.php">Iniciar Sesión</a>
 	</p>
 
 </body>
