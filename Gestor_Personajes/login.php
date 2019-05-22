@@ -1,4 +1,4 @@
-<?php session_start();
+﻿<?php session_start();
 if (isset($_SESSION['usuario'])) {
 	header('Location: formulario_personajes.php');
 }
@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	<div class="contenedor">
 	<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" class="formulario" name="login">
 		<input type="text" name="usuario" placeholder="Usuario"><br>
-		<input type="password" name="pwd" placeholder="Contrasena"><br>
+		<input type="password" name="password" placeholder="Contrasena"><br>
 		<button type="button" onclick="login.submit()">Iniciar Sesion</button><br>
 		<?php if(!empty($errores)): ?>
 				<div>
