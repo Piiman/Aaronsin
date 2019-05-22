@@ -34,13 +34,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
-  	<link rel="stylesheet" type="text/css" href="estilo_login.css">
+  	<link rel="stylesheet"  
+  	href="estilo_login.css">
 </head>
 <body>
 	<h1>Iniciar Sesión</h1>
+	<div class="contenedor">
 	<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" class="formulario" name="login">
 		<input type="text" name="usuario" placeholder="Usuario"><br>
-		<input type="password" name="password" placeholder="Contrasena"><br>
+		<input type="password" name="pwd" placeholder="Contrasena"><br>
 		<button type="button" onclick="login.submit()">Iniciar Sesion</button><br>
 		<?php if(!empty($errores)): ?>
 				<div>
