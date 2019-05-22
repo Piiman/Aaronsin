@@ -1,3 +1,6 @@
+<?php
+  include("valida.php");
+?>
 
 <!DOCTYPE html>
 <html>
@@ -8,6 +11,9 @@
 </head>
 
 <body>
+  <?php
+    echo $nom
+  ?>
   <a href="cerrar.php"> Cerrar Sesion</a>
 
 <h1>Crea tu personaje</h1>
