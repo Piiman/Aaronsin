@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$password2 = $_POST['vpassword'];
 	$errores = '';
 	if (empty($usuario) or empty($password) or empty($password2)) {
-		$errores .= <li>'Por favor rellena todos los datos'</li>;
+		$errores .= '<li>Por favor rellena todos los datos</li>';
 	} else {
 		try {
 			$conexion = new PDO('mysql:host=localhost;dbname=gsp', 'root', '');

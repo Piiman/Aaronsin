@@ -1,23 +1,21 @@
  <?php
-$servidor = "localhost";
-$user = "user";
-$pass = "1234";
-$basedatos = "daebatos";
+	include("valida.php");
 
-$conn = new mysqli($servidor, $user, $pass, $basedatos);
 
-if ($conn->connect_error) {
-    die("Coneccion fallida " . $conn->connect_error);
-}
+	$nombre = $_POST['nombre'];
+	$desc = $_POST['desc'];
 
-$sql = "INSERT INTO personajes(nombre,raza,genero,clase,fuerza,destreza,salud,resistencia,inteligencia,sabiduria,carisma,habilidades) 
-VALUES($_GET["nombre"], $_GET["raza"], $_GET["genero"], $_GET["clase"], $_GET["fuerza"], $_GET["destreza"], $_GET["salud"], $_GET["resistencia"], $_GET["inteligencia"], $_GET["sabiduria"], $_GET["carisma"], $_GET["habilidades"]);
-
-if ($conn->query($sql) === TRUE) {
-    echo "nuevo personaje creado";
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-}
-
-$conn->close();
+	if(empty($nombre) && empty($desc)){
+		echo "Porfavor Llena todos los campos" ;
+	} else {
+		try {
+			$conexion = new PDO('mysql:host=localhost;dbname=gsp', 'root', '');
+		} catch (PDOExeption $e) {
+			echo "Error: " . $e->getMessage();
+		}
+		$statement = $conexion->prepare('INSERT INTO personajes (autor,nombre,descripcion) VALUES ( :user, :nombre, :descripcion)');
+		$statement->execute(array(':user' => $nom, ':nombre' => $nombre, ':descripcion' => $desc));
+		echo "Personaje creado con exito";
+		echo " valores Personaje Nombre: " . $nombre . " Desc: " . $desc ; 
+	}
 ?> 
