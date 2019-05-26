@@ -1,6 +1,6 @@
 ﻿<?php session_start();
 if (isset($_SESSION['usuario'])) {
-	header('Location: formulario_personajes.php');
+	header('Location: formulario_personaje.php');
 }
 $errores = '';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -22,6 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$resultado = $statement->fetch();
 	if ($resultado !== false) {
 		$_SESSION['usuario'] = $usuario;
+		//$_SESSION['id'] = $resultado[][];
 		header('Location: formulario_personaje.php');
 	} else {
 		$errores .= '<li>Datos Incorrectos</li>';

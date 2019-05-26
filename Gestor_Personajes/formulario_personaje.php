@@ -28,32 +28,25 @@
   <a href="cerrar.php"> Cerrar Sesion</a>
 
 <h1>Crea tu personaje</h1>
-<form action="enviar_datos_personaje.php" method="post">
+<form enctype="multipart/form-data" action="enviar_datos_personaje.php" method="POST">
 
   Nombre:<br>
-  <input type="text" class="redoncol" name="nombre" placeholder="Nombre">
+  <input type="text" class="redoncol" name="nombre" placeholder="Nombre"/>
   <br>
   Descripcion:<br>
   <textarea class="redoncol" rows="4" cols="40" name="desc"></textarea>
   <br>
-  <input type="submit" value="Guardar"><br>
-</form>
-  Sube una imagen de tu personaje!<br>
+  Sube una imagen de tu personaje!
+  <br><br><input name="img" type="file"/>  
   <br><br>
-  <form  name="subida-imagen" type="POST" enctype="multipart/formdata">
-    <input type="file" name="imagen"/>
-     <input type="submit" name="subir-imagen" value="Enviar Imagen"/>
-  </form>  
-  <br><br>
-  <input type="submit" value="Guardar">
-</p>
+  <input type="submit" value="Guardar"/>
 </form>
 
 
 </body>
 </html>
 <?php
-include("valida.php");
+//include("valida.php");
 
 
 
