@@ -10,12 +10,13 @@
 	} else {
 		try {
 			$conexion = new PDO('mysql:host=localhost;dbname=gsp', 'root', '');
+			$sql = "INSERT INTO personajes (id_per, autor, nombre, descripcion, foto) VALUES (null, ".$nom.", ".$nombre.", ".$desc.", null)";
+			$conexion->exec($sql);
+			echo "Personaje creado con exito";
+			echo " valores Personaje Nombre: " . $nombre . " Desc: " . $desc ; 
 		} catch (PDOExeption $e) {
-			echo "Error: " . $e->getMessage();
+			echo $sql . "<br>" . $e->getMessage();
 		}
-		$statement = $conexion->prepare('INSERT INTO personajes (autor,nombre,descripcion) VALUES ( :user, :nombre, :descripcion)');
-		$statement->execute(array(':user' => $nom, ':nombre' => $nombre, ':descripcion' => $desc));
-		echo "Personaje creado con exito";
-		echo " valores Personaje Nombre: " . $nombre . " Desc: " . $desc ; 
+	$conexion = null;
 	}
 ?> 
