@@ -1,24 +1,24 @@
  <?php
-	include("valida.php");
-
 	$nombre = $_POST['nombre'];
 	$desc = $_POST['desc'];
-    $nombre_archivo =$_FILES['img']['name'];
-    $tipo_archivo = $_FILES['img']['type'];
-    $tamano_archivo = $_FILES['img']['size'];
-
-
-	$rutaDes = $_SERVER['DOCUMENT_ROOT']. "/img/" ;
-
-	move_uploaded_file($_FILES['img']['tmp_name'], $rutaDes . $nombre_archivo);
-
-	echo $nom;
-	echo $nombre;
-	echo $desc;
-	echo $nombre_archivo;
-	echo $tipo_archivo;
-	echo $tamano_archivo;
-	echo $rutaDes;
+	if(isset($_FILES['img'])){
+    	$nombre_archivo =$_FILES['img']['name'];
+	    $tipo_archivo = $_FILES['img']['type'];
+    	$tamano_archivo = $_FILES['img']['size'];
+    	if($tamano_archivo <=3000000 && $tamano_archivo>=1){
+    		if(tipo_archivo=="image/jpeg"||tipo_archivo=="image/jpg"||tipo_archivo=="image/png"||tipo_archivo=="image/gif"){
+			$rutaDes = $_SERVER['DOCUMENT_ROOT']. "/img/" ;
+			move_uploaded_file($_FILES['img']['tmp_name'], $rutaDes . $nombre_archivo);	
+			header('Location: visualizacion.php');	
+    		}else{
+			$_POST['error'] = 'Archivo no soportado';
+			header('Location: formulario_personaje_con_error.php');
+		}
+		}else{
+			$_POST['error'] = 'Archivo no soportado';
+			header('Location: formulario_personaje_con_error.php');
+		}
+	}
 
 	/*if(empty($nombre) && empty($desc)){
 		echo "Porfavor Llena todos los campos" ;

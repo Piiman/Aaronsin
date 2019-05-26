@@ -40,6 +40,8 @@
   <br><br><input name="img" type="file"/>
   <br><br>
   <input type="submit" value="Guardar"/>
+  <br>
+  <div><h1>Tamaño no soportado</h1></div>
 </form>
 </body>
 </html>
