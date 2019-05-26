@@ -8,6 +8,17 @@
   <title>Crea a tu personaje</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8/">
   <link rel="stylesheet" type="text/css" href="estilo_formulario_personaje.css">
+     <style>
+   input {
+     width: 250px;
+     padding: 5px;
+ }
+     .redoncol{
+     border-radius: 5px;
+     border:1px solid #39c;
+   }
+
+     </style>
 </head>
 
 <body>
@@ -20,10 +31,10 @@
 <form action="enviar_datos_personaje.php" method="post">
 
   Nombre:<br>
-  <input type="text" name="nombre" placeholder="Nombre">
+  <input type="text" class="redoncol" name="nombre" placeholder="Nombre">
   <br>
   Descripcion:<br>
-  <textarea rows="4" cols="40" name="desc"></textarea>
+  <textarea class="redoncol" rows="4" cols="40" name="desc"></textarea>
   <br>
   <input type="submit" value="Guardar"><br>
 </form>

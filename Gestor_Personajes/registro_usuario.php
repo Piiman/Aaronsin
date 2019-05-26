@@ -44,13 +44,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8/">
   <link rel="stylesheet" type="text/css" href="estilo_registro_usuario.css">
 	<title>Document</title>
+	 <style>
+   input {
+     width: 250px;
+     padding: 5px;
+ }
+     .redondo{
+     border-radius: 5px;
+   }
+
+     </style>
 </head>
 <body>
 	<h1>Registro</h1>
 	<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" class="formulario" name="login">
-		Introduce un nombre de usuario válido <input type="text" name="usuario" placeholder="Usuario"><br>
-		Introduce una contraseña <input type="password" name="password" placeholder="Contraseña"><br>
-		Repite tu contraseña <input type="password" name="vpassword" placeholder="Confirma Contraseña"><br><br>
+		Introduce un nombre de usuario válido <input type="text" class="redondo" name="usuario" placeholder="Usuario"><br>
+		Introduce una contraseña <input type="password" class="redondo" name="password" placeholder="Contraseña"><br>
+		Repite tu contraseña <input type="password" class="redondo" name="vpassword" placeholder="Confirma Contraseña"><br><br>
 		<button class="boton" type="button" onclick="login.submit()">Registrar</button><br>
 		<?php if(!empty($errores)): ?>
 				<div>
