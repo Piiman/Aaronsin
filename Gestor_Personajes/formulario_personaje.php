@@ -1,5 +1,6 @@
 <?php
   include("valida.php");
+  include("enviar_datos_personaje.php");
 ?>
 
 <!DOCTYPE html>
@@ -28,9 +29,9 @@
   <a href="cerrar.php">Cerrar Sesion</a>
 
 <h1>Crea tu personaje</h1>
-<form enctype="multipart/form-data" action="enviar_datos_personaje.php" method="POST">
+<form enctype="multipart/form-data" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
 
-  Nombre:<br>
+  Nombre*:<br>
   <input type="text" class="redoncol" name="nombre" placeholder="Nombre"/>
   <br>
   Descripcion:<br>
@@ -40,6 +41,13 @@
   <br><br><input name="img" type="file"/>
   <br><br>
   <input type="submit" value="Guardar"/>
+  <?php if(!empty($errores)): ?>
+        <div>
+          <ul>
+            <?php echo $errores; ?>
+          </ul>
+        </div>
+    <?php endif; ?>
 </form>
 </body>
 </html>
