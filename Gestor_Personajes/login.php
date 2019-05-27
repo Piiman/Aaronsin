@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$resultado = $statement->fetch();
 	if ($resultado !== false) {
 		$_SESSION['usuario'] = $usuario;
-		//$_SESSION['id'] = $resultado[][];
+		$_SESSION['id'] = $resultado['id'];
 		header('Location: formulario_personaje.php');
 	} else {
 		$errores .= '<li>Datos Incorrectos</li>';

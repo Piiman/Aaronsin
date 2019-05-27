@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-05-2019 a las 13:59:04
+-- Tiempo de generación: 26-05-2019 a las 22:34:10
 -- Versión del servidor: 10.1.30-MariaDB
 -- Versión de PHP: 7.2.2
 
@@ -25,6 +25,21 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `personajes`
+--
+
+CREATE TABLE `personajes` (
+  `id_per` int(11) NOT NULL,
+  `autor` int(11) NOT NULL,
+  `nombre` varchar(255) NOT NULL,
+  `descripcion` varchar(255) NOT NULL,
+  `foto` blob NOT NULL,
+  `tfoto` varchar(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `usuarios`
 --
 
@@ -34,19 +49,27 @@ CREATE TABLE `usuarios` (
   `contrasena` varchar(255) NOT NULL,
   `estado` int(11) NOT NULL,
   `correo` varchar(255) NOT NULL,
-  `foto` binary(255) DEFAULT NULL
+  `foto` blob,
+  `tfoto` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `nombre`, `contrasena`, `estado`, `correo`, `foto`) VALUES
-(3, 'aureo', 'd404559f602eab6fd602ac7680dacbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db', 0, '', NULL);
+INSERT INTO `usuarios` (`id`, `nombre`, `contrasena`, `estado`, `correo`, `foto`, `tfoto`) VALUES
+(3, 'aureo', 'd404559f602eab6fd602ac7680dacbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db', 0, '', NULL, ''),
+(4, 'ben', 'd404559f602eab6fd602ac7680dacbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db', 0, '', NULL, '');
 
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `personajes`
+--
+ALTER TABLE `personajes`
+  ADD KEY `personajes_ibfk_1` (`autor`);
 
 --
 -- Indices de la tabla `usuarios`
@@ -63,7 +86,17 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `personajes`
+--
+ALTER TABLE `personajes`
+  ADD CONSTRAINT `personajes_ibfk_1` FOREIGN KEY (`autor`) REFERENCES `usuarios` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
