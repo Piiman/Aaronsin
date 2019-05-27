@@ -7,9 +7,17 @@ body {
 	color: black;
 	text-align: left;
 }
-	
+
+.redoncol {
 
 
+     width: 250px;
+     padding: 5px;
+     border-radius: 5px;
+     border:1px solid #39c;
+   }
+
+   
 h1 {
 
 	font-family: 'PT Mono', monospace;

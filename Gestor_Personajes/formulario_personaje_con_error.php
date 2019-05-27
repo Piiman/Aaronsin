@@ -8,20 +8,27 @@
   <title>Crea a tu personaje</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8/">
   <link rel="stylesheet" type="text/css" href="estilo_formulario_personaje.css">
-     <style>
-   input {
-     width: 250px;
-     padding: 5px;
- }
-     .redoncol{
-     border-radius: 5px;
-     border:1px solid #39c;
-   }
+  <link rel="stylesheet" type="text/css" href="estilo_header.css">
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="header.js"></script>
 
-     </style>
 </head>
 
 <body>
+  <header>
+        
+         <div class="envol">
+         <div class="logo"> Gestor de Personajes </div>         
+          <nav>
+          <a href="login.html">Inicia Sesión</a>
+          <a href="registro_usuario.html">Regístrate</a>
+          <a href="formulario_personaje.html">Crea / Edita</a>
+          <a href="Reporte.html">Reporta</a>  
+
+          </nav>
+        </div>
+        </header>
+        <section class="contenido envol">
   <?php
     echo $nom
   ?>
@@ -43,5 +50,6 @@
   <br>
   <div><h1>Datos no soportados. Verifique el nombre. El tamaño de la foto no tiene que superar los 3 MB</h1></div>
 </form>
+</section>
 </body>
 </html>

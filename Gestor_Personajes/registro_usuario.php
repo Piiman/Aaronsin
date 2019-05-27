@@ -43,19 +43,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8/">
   <link rel="stylesheet" type="text/css" href="estilo_registro_usuario.css">
+  <link rel="stylesheet" type="text/css" href="estilo_header.css">
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="header.js"></script>
 	<title>Document</title>
-	 <style>
-   input {
-     width: 250px;
-     padding: 5px;
- }
-     .redondo{
-     border-radius: 5px;
-   }
-
-     </style>
+	 
 </head>
 <body>
+	<header>
+       
+         <div class="envol">
+         <div class="logo"> Gestor de Personajes </div>         
+          <nav>
+          <a href="login.html">Inicia Sesión</a>
+          <a href="registro_usuario.html">Regístrate</a>
+          <a href="formulario_personaje.html">Crea / Edita</a>
+          <a href="Reporte.html">Reporta</a>  
+          </nav>
+        </div>
+        </header>
+        <section class="contenido envol">
 	<h1>Registro</h1>
 	<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" class="formulario" name="login">
 		Introduce un nombre de usuario válido <input type="text" class="redondo" name="usuario" placeholder="Usuario"><br>
@@ -77,6 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	<p>
 		<a href="login.php">Iniciar Sesión</a>
 	</p>
+</section>
 
 </body>
 </html>
