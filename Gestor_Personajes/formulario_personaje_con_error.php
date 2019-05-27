@@ -41,7 +41,7 @@
   <br><br>
   <input type="submit" value="Guardar"/>
   <br>
-  <div><h1>Datos no soportados. Verifique el nombre. El tamaño de la foto no tiene que superar los 3 MB</h1></div>
+  <div><h1>Tamaño no soportado</h1></div>
 </form>
 </body>
 </html>
