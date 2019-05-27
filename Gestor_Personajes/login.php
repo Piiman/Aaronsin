@@ -45,20 +45,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <body>
 	 <header>
-        
          <div class="envol">
          <div class="logo"> Gestor de Personajes </div>         
           <nav>
-          <a href="login.html">Inicia Sesión</a>
-          <a href="registro_usuario.html">Regístrate</a>
-          <a href="formulario_personaje.html">Crea / Edita</a>
-          <a href="Reporte.html">Reporta</a>  
-
+          <!--a href="login.php">Inicia Sesión</a>
+          <a href="registro_usuario.php">Regístrate</a-->
+          <a href="formulario_personaje.php">Crea</a>
+          <a href="Reporte.php">Reporta</a>
           </nav>
         </div>
-        </header>
+     </header>
         <section class="contenido envol">
-	<h1>Iniciar Sesión</h1>
+	<!--h1>Iniciar Sesión</h1-->
 	<div class="contenedor">
 	<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" class="formulario" name="login">
 		<input type="text" class= "redondo" name="usuario" placeholder="Usuario"><br>
@@ -72,6 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				</div>
 		<?php endif; ?>
 	</form>
+	</div>
 	<p>
 		<a href="registro_usuario.php">Registrate</a><br>
 	</p>
