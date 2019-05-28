@@ -1,7 +1,37 @@
+<?php 
+  include("valida.php");
+
+  $nomper = 'Schnee';
+  $desc = 'Waifu';
+
+
+  $conexion = mysqli_connect('localhost', 'root', '','gsp');
+
+  if (mysqli_connect_errno()) {
+    echo "No es posible conectar con la DB";
+    exit();
+  }
+
+  mysqli_select_db($conexion,'gsp') or die("No se encuentra la DB");
+  $statement = "SELECT * FROM personajes WHERE nombre = 'Schnee' && descripcion = 'Waifu'";
+  $resultado = mysqli_query($conexion,$statement);
+  while ($fila=mysqli_fetch_array($resultado)) {
+    $id_per=$fila["id_per"];
+    $autor=$fila["autor"];
+    $nombre=$fila["nombre"];
+    $descrip=$fila["descripcion"];
+    $foto=$fila["foto"];
+  }
+  $statement = "SELECT nombre FROM usuarios WHERE id=".$autor;
+  $resultado = mysqli_query($conexion,$statement);
+  $fila = mysqli_fetch_array($resultado);
+  $nomautor = $fila["nombre"];
+ ?>
+
 <!DOCTYPE>
 <html>
 <head>
-<title> (Aquí va el nombre del personaje) </title>
+<title> <?php echo $nombre; ?> </title>
 
 <style>
 table, th, td {
@@ -25,11 +55,14 @@ table#t01 {
 <table style="width:100%">
 <table id="t01">
   <tr>
-    <th>Nombre</th>
+    <th>Nombre: <?php echo $nombre; ?></th>
   </tr>
 <tr>
-    <td>Imagen</td>
+    <td>Imagen<br>
+    <?php echo "<img src='data:image/jpeg; base64,". base64_encode($foto). "'>"; ?>
+    </td>
 <tr>
-    <td>Descripción</td>
+    <td>Descripci&oacuten: <?php echo $descrip; ?></td>
+    <?php echo "Autor:". $nomautor; ?>
 </body>
 </html>
