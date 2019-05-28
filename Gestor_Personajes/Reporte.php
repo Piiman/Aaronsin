@@ -4,9 +4,28 @@
   <title>Reportar</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8/">
    <link rel="stylesheet" type="text/css" href="estilo_reporte.css">
+    <link rel="stylesheet" type="text/css" href="estilo_header.css">
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="header.js"></script>
 </head>
 
 <body>
+
+  <header>
+      
+         <div class="envol">
+         <div class="logo"> Gestor de Personajes </div>         
+          <nav>
+          <a href="login.html">Inicia Sesión</a>
+          <a href="registro_usuario.html">Regístrate</a>
+          <a href="formulario_personaje.html">Crea / Edita</a>
+          <a href="Reporte.html">Reporta</a>  
+
+          </nav>
+        </div>
+
+        </header>
+        <section class="contenido envol">
 
 
 <h1>Llena los datos para completar tu reporte</h1>
@@ -33,9 +52,9 @@ Comentarios:<br>
 
 </form> 
 <br>
-<l>Tu reporte se enviará a un administrador para su revisión. <br>
-	<l>Gracias por tus comentarios
-
+<l>Tu reporte se enviará a un administrador para su revisión.</l> <br>
+	<l>Gracias por tus comentarios</l>
+</section>
 
 </body>
 </html>
