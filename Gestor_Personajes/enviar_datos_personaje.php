@@ -30,12 +30,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$resultado = $statement->fetch();
 			if ($resultado != false) {
 				$errores .= '<li>El personaje ya existe</li>';
-				header('Location: formulario_personaje_con_error.php');
+				//header('Location: formulario_personaje_con_error.php');
 			}else{
 				$statement = $conexion->prepare('INSERT INTO personajes (id_per, autor, nombre,descripcion,foto,tfoto) VALUES (null, :idusu, :nombre, :descrip, :foto, :tfoto)');
 				$statement->execute(array(':idusu' => $idusuario, ':nombre' => $nomper, ':descrip'=>$desc, ':foto'=>$contenido_foto, ':tfoto'=>$tipo_archivo));
 
-			header('Location: visualizacion.php');
+	$statement = $conexion->prepare('SELECT id_per FROM `personajes` WHERE id_per = (select MAX(id_per) from personajes where autor = :autor)');
+    	$statement->execute(array(':autor' => $idusuario));
+		$resultado = $statement->fetch();
+		$_SESSION['idper'] = $resultado['id_per'];
+			header('Location: visulizacion.php');
 			}
 			}else{
 				$errores .= '<li>No es una imagen</li>';
@@ -55,11 +59,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$statement = $conexion->prepare('INSERT INTO personajes (id_per, autor, nombre,descripcion,foto,tfoto) VALUES (null, :idusu, :nombre, :descrip, null, null)');
 			$statement->execute(array(':idusu' => $idusuario, ':nombre' => $nomper, ':descrip'=>$desc));
 			}
-			header('Location: visualizacion.php');
+
+	$statement = $conexion->prepare('SELECT id_per FROM `personajes` WHERE id_per = (select MAX(id_per) from personajes where autor = :autor)');
+    	$statement->execute(array(':autor' => $idusuario));
+		$resultado = $statement->fetch();
+		$_SESSION['idper'] = $resultado['id_per'];
+			header('Location: visulizacion.php');
 	}
 	} catch (PDOException $e) {
 		echo "Error:" . $e->getMessage();;
-	}}
+	}}	
+
 }
 unset($_FILES);
 
