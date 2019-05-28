@@ -42,11 +42,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <html lang="en" class="animated fadeInDown">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8/">
-  <link rel="stylesheet" type="text/css" href="estilo_registro_usuario.css">
-  <link rel="stylesheet" type="text/css" href="estilo_header.css">
-  <link rel="stylesheet"  href="animate.css">
+  <link rel="stylesheet" type="text/css" href="css/estilo_registro_usuario.css">
+  <link rel="stylesheet" type="text/css" href="css/estilo_header.css">
+  <link rel="stylesheet"  href="css/animate.css">
     <script src="http://code.jquery.com/jquery-latest.js"></script>
-    <script src="header.js"></script>
+    <script src="js/header.js"></script>
     
 	<title>Document</title>
 	 

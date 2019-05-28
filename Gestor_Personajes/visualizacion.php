@@ -1,8 +1,8 @@
 <?php 
   include("valida.php");
 
-  $nomper = 'Schnee';
-  $desc = 'Waifu';
+  $nomper = 'panchito';
+  $desc = 'es verga';
 
 
   $conexion = mysqli_connect('localhost', 'root', '','gsp');
@@ -13,8 +13,9 @@
   }
 
   mysqli_select_db($conexion,'gsp') or die("No se encuentra la DB");
-  $statement = "SELECT * FROM personajes WHERE nombre = 'Schnee' && descripcion = 'Waifu'";
+  $statement = "SELECT * FROM personajes WHERE nombre = 'panchito' && descripcion = 'es verga'";
   $resultado = mysqli_query($conexion,$statement);
+  $autor = 'mayan';
   while ($fila=mysqli_fetch_array($resultado)) {
     $id_per=$fila["id_per"];
     $autor=$fila["autor"];
@@ -22,7 +23,7 @@
     $descrip=$fila["descripcion"];
     $foto=$fila["foto"];
   }
-  $statement = "SELECT nombre FROM usuarios WHERE id=".$autor;
+  $statement = "SELECT nombre FROM usuarios WHERE id= '".$autor."'";
   $resultado = mysqli_query($conexion,$statement);
   $fila = mysqli_fetch_array($resultado);
   $nomautor = $fila["nombre"];

@@ -1,3 +1,6 @@
+<?php 
+include("valida.php");
+ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,23 +33,6 @@ tr:nth-child(even) {
     <th>Nombre</th>
     <th>Autor</th> 
     <th>Imagen</th>
-  </tr>
-  <tr>
-    <td>Ejemplo</td>
-    <td>Ejemplo </td>
-    <td>Ejemplo </td>
-  </tr>
-</tr>
-  <tr>
-    <td>Ejemplo</td>
-    <td>Ejemplo </td>
-    <td>Ejemplo </td>
-  </tr>
-</tr>
-  <tr>
-    <td>Ejemplo</td>
-    <td>Ejemplo </td>
-    <td>Ejemplo </td>
   </tr>
 </table>
 

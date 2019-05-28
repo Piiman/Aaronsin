@@ -8,11 +8,11 @@
 <head>
   <title>Crea a tu personaje</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8/">
-  <link rel="stylesheet" type="text/css" href="estilo_formulario_personaje.css">
-  <link rel="stylesheet" type="text/css" href="estilo_header.css">
-  <link rel="stylesheet"  href="animate.css">
+  <link rel="stylesheet" type="text/css" href="css/estilo_formulario_personaje.css">
+  <link rel="stylesheet" type="text/css" href="css/estilo_header.css">
+  <link rel="stylesheet"  href="css/animate.css">
     <script src="http://code.jquery.com/jquery-latest.js"></script>
-    <script src="header.js"></script>
+    <script src="js/header.js"></script>
  
 
 </head>

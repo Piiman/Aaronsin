@@ -3,11 +3,11 @@
 <head>
   <title>Reportar</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8/">
-   <link rel="stylesheet" type="text/css" href="estilo_reporte.css">
-    <link rel="stylesheet" type="text/css" href="estilo_header.css">
-         <link rel="stylesheet"  href="animate.css">
+   <link rel="stylesheet" type="text/css" href="css/estilo_reporte.css">
+    <link rel="stylesheet" type="text/css" href="css/estilo_header.css">
+         <link rel="stylesheet"  href="css/animate.css">
     <script src="http://code.jquery.com/jquery-latest.js"></script>
-    <script src="header.js"></script>
+    <script src="js/header.js"></script>
 
 
 </head>

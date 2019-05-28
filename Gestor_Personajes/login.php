@@ -35,11 +35,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
-	<link rel="stylesheet" href="estilo_header.css">
-	<link rel="stylesheet"  href="estilo_login.css">
-	 <link rel="stylesheet"  href="animate.css">
+	<link rel="stylesheet" href="css/estilo_header.css">
+	<link rel="stylesheet"  href="css/estilo_login.css">
+	 <link rel="stylesheet"  href="css/animate.css">
     <script src="http://code.jquery.com/jquery-latest.js"></script>
-    <script src="header.js"></script>
+    <script src="js/header.js"></script>
   	
   	
 </head>

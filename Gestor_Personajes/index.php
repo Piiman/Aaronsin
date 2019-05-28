@@ -4,11 +4,11 @@
   <title>Inicio</title>
 
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8/">
- <link rel="stylesheet" type="text/css" href="estilo_index.css">
-    <link rel="stylesheet" type="text/css" href="estilo_header.css">
+ <link rel="stylesheet" type="text/css" href="css/estilo_index.css">
+    <link rel="stylesheet" type="text/css" href="css/estilo_header.css">
     <script src="http://code.jquery.com/jquery-latest.js"></script>
-    <script src="header.js"></script>
-    <link rel="stylesheet"  href="animate.css">
+    <script src="js/header.js"></script>
+    <link rel="stylesheet"  href="css/animate.css">
 </head>
 
 <body>
