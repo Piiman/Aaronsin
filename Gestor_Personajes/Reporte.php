@@ -1,12 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="en"  class="animated fadeInUp" >
 <head>
   <title>Reportar</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8/">
    <link rel="stylesheet" type="text/css" href="estilo_reporte.css">
     <link rel="stylesheet" type="text/css" href="estilo_header.css">
+         <link rel="stylesheet"  href="animate.css">
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="header.js"></script>
+
+
 </head>
 
 <body>
