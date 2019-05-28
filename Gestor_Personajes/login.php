@@ -31,15 +31,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 //require 'views/login.view.php';
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="animated fadeInLeft">
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<link rel="stylesheet" href="estilo_header.css">
+	<link rel="stylesheet"  href="estilo_login.css">
+	 <link rel="stylesheet"  href="animate.css">
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="header.js"></script>
-  	<link rel="stylesheet"  
-  	href="estilo_login.css">
+  	
   	
 </head>
 
