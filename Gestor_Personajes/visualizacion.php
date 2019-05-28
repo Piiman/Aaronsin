@@ -1,8 +1,8 @@
 <?php 
   include("valida.php");
 
-  $nomper = 'panchito';
-  $desc = 'es verga';
+  $idper = $_SESSION['idper'];
+  $iduser = $_SESSION['id'];
 
 
   $conexion = mysqli_connect('localhost', 'root', '','gsp');
@@ -13,7 +13,7 @@
   }
 
   mysqli_select_db($conexion,'gsp') or die("No se encuentra la DB");
-  $statement = "SELECT * FROM personajes WHERE nombre = 'panchito' && descripcion = 'es verga'";
+  $statement = "SELECT * FROM personajes WHERE id_per = ".$idper." && autor = ".$iduser;
   $resultado = mysqli_query($conexion,$statement);
   $autor = 'mayan';
   while ($fila=mysqli_fetch_array($resultado)) {

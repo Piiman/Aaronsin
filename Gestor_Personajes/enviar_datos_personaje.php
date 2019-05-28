@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     	$statement->execute(array(':autor' => $idusuario));
 		$resultado = $statement->fetch();
 		$_SESSION['idper'] = $resultado['id_per'];
-			header('Location: visulizacion.php');
+			header('Location: visualizacion.php');
 			}
 			}else{
 				$errores .= '<li>No es una imagen</li>';
@@ -64,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     	$statement->execute(array(':autor' => $idusuario));
 		$resultado = $statement->fetch();
 		$_SESSION['idper'] = $resultado['id_per'];
-			header('Location: visulizacion.php');
+			header('Location: visualizacion.php');
 	}
 	} catch (PDOException $e) {
 		echo "Error:" . $e->getMessage();;
