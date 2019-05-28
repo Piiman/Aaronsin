@@ -16,10 +16,10 @@
          <div class="envol">
          <div class="logo"> Gestor de Personajes </div>         
           <nav>
-          <a href="login.html">Inicia Sesión</a>
-          <a href="registro_usuario.html">Regístrate</a>
-          <a href="formulario_personaje.html">Crea / Edita</a>
-          <a href="Reporte.html">Reporta</a>  
+          <a href="login.php">Inicia Sesión</a>
+          <a href="registro_usuario.php">Regístrate</a>
+          <a href="formulario_personaje.php">Crea / Edita</a>
+          <a href="Reporte.php">Reporta</a>  
 
           </nav>
         </div>
