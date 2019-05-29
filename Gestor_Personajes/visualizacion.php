@@ -59,7 +59,13 @@ table#t01 {
   </tr>
 <tr>
     <td>Imagen<br>
-    <?php echo "<img src='data:image/jpeg; base64,". base64_encode($foto). "'>"; ?>
+    <?php 
+    if ($foto !=null) {
+      echo "<img src='data:image/jpeg; base64,". base64_encode($foto). "'>";
+    }else{
+      echo "Imagen no disponible";
+    }
+       ?>
     </td>
 <tr>
     <td>Descripci&oacuten: <?php echo $descrip; ?></td>

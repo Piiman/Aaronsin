@@ -53,7 +53,12 @@ tr:nth-child(even) {
     echo "<tr>";
     echo "<td>".$linea["nombre"]."</td>";
     echo "<td>".$linea["autor"]."</td>";
-    echo "<td><img src='data:image/jpeg; base64,". base64_encode($linea["foto"]). "'></td>";
+    if ($linea["foto"]!=null) {
+      echo "<td><img src='data:image/jpeg; base64,". base64_encode($linea["foto"]). "'></td>";
+    } else{
+      echo "<td>Imagen no disponible</td>";
+    }
+    
     echo "</tr>";
     echo "</form>";
     }
