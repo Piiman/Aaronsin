@@ -34,7 +34,7 @@
   <?php
     echo $nom
   ?>
-  <a href="cerrar.php">Cerrar Sesion</a>
+  <!--a href="cerrar.php">Cerrar Sesion</a-->
 
 <h1>Crea tu personaje</h1>
 <form enctype="multipart/form-data" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">

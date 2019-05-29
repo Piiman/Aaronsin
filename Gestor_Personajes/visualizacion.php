@@ -13,7 +13,7 @@
   }
 
   mysqli_select_db($conexion,'gsp') or die("No se encuentra la DB");
-  $statement = "SELECT * FROM personajes WHERE id_per = ".$idper." && autor = ".$iduser;
+  $statement = "SELECT * FROM personajes as per WHERE id_per = ".$idper." && autor = ".$iduser;
   $resultado = mysqli_query($conexion,$statement);
   while ($fila=mysqli_fetch_array($resultado)) {
     $id_per=$fila["id_per"];
