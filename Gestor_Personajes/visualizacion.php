@@ -1,4 +1,4 @@
-<?php 
+<?php
   include("valida.php");
 
   //echo $_POST['idper'];
@@ -7,12 +7,14 @@
   }else{
     $idper = $_POST['idper'];
   }
+  echo $idper;
   //echo $_POST['aut'];
   if(empty($_POST['aut'])){
     $iduser = $_SESSION['id'];
   }else{
     $iduser = $_POST['aut'];
   }
+  echo $iduser;
 
 
   $conexion = mysqli_connect('localhost', 'root', '','gsp');
@@ -53,7 +55,7 @@ th, td {
   text-align: left;
 }
 table#t01 {
-  width: 100%;    
+  width: 100%;
   background-color: #f1f1c1;
 }
 
@@ -74,7 +76,7 @@ table#t01 {
   </tr>
 <tr>
     <td>Imagen<br>
-    <?php 
+    <?php
     if ($foto !=null) {
       echo "<img src='data:image/jpeg; base64,". base64_encode($foto). "'>";
     }else{

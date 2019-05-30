@@ -5,6 +5,7 @@
 	$desc = "";
 	$errores = "";
 
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$nomper = $_POST['nombre'];
 	$desc = $_POST['desc'];
@@ -21,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     	if($tamano_archivo <=3000000 && $tamano_archivo>=1){
     		if($tipo_archivo=="image/jpeg"||$tipo_archivo=="image/jpg"||$tipo_archivo=="image/png"||$tipo_archivo=="image/gif"){
 				$rutaDes = $_SERVER['DOCUMENT_ROOT']. "/img/" ;
-				move_uploaded_file($_FILES['img']['tmp_name'], $rutaDes . $nombre_archivo);	
+				move_uploaded_file($_FILES['img']['tmp_name'], $rutaDes . $nombre_archivo);
 	    		$objetivo = fopen($rutaDes . $nombre_archivo, "r");
 	    		$contenido_foto = fread($objetivo, $tamano_archivo);
 				fclose($objetivo);
@@ -35,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				$statement = $conexion->prepare('INSERT INTO personajes (id_per, autor, nombre,descripcion,foto,tfoto) VALUES (null, :idusu, :nombre, :descrip, :foto, :tfoto)');
 				$statement->execute(array(':idusu' => $idusuario, ':nombre' => $nomper, ':descrip'=>$desc, ':foto'=>$contenido_foto, ':tfoto'=>$tipo_archivo));
 
-	$statement = $conexion->prepare('SELECT id_per FROM `personajes` WHERE id_per = (select MAX(id_per) from personajes where autor = :autor)');
+	$statement = $conexion->prepare('SELECT id_per FROM personajes WHERE id_per = (select MAX(id_per) from personajes where autor = :autor)');
     	$statement->execute(array(':autor' => $idusuario));
 		$resultado = $statement->fetch();
 		$_SESSION['idper'] = $resultado['id_per'];
@@ -60,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$statement->execute(array(':idusu' => $idusuario, ':nombre' => $nomper, ':descrip'=>$desc));
 			}
 
-	$statement = $conexion->prepare('SELECT id_per FROM `personajes` WHERE id_per = (select MAX(id_per) from personajes where autor = :autor)');
+	$statement = $conexion->prepare('SELECT id_per FROM personajes WHERE id_per = (select MAX(id_per) from personajes where autor = :autor)');
     	$statement->execute(array(':autor' => $idusuario));
 		$resultado = $statement->fetch();
 		$_SESSION['idper'] = $resultado['id_per'];
@@ -68,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	}
 	} catch (PDOException $e) {
 		echo "Error:" . $e->getMessage();;
-	}}	
+	}}
 
 }
 unset($_FILES);
@@ -81,10 +82,10 @@ unset($_FILES);
 			$sql = "INSERT INTO personajes (id_per, autor, nombre, descripcion, foto) VALUES (null," . $nom . "," .$nombre. "," .$desc.", null)";
 			$conexion->exec($sql);
 			echo "Personaje creado con exito";
-			echo " valores Personaje Nombre: " . $nombre . " Desc: " . $desc ; 
+			echo " valores Personaje Nombre: " . $nombre . " Desc: " . $desc ;
 		} catch (PDOExeption $e) {
 			echo $sql . "<br>" . $e->getMessage();
 		}
 	$conexion = null;
 	}*/
-?> 
+?>
