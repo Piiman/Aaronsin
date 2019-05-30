@@ -8,14 +8,14 @@
   }
   mysqli_select_db($conexion,'gsp') or die("No se encuentra la DB");
   //$statement = "SELECT * FROM (SELECT * FROM personajes ORDER BY id_per DESC LIMIT 10)Var1 ORDER BY id_per DES";
-  $statement = "SELECT per.id_per as 'id_per', usu.nombre as 'autor', per.nombre as 'personaje', per.foto as 'foto' from personajes as per inner join usuarios as usu on per.autor = usu.id order by per.id_per DESC";
+  $statement = "SELECT per.id_per as 'id_per', per.autor  as 'aut', usu.nombre as 'autor', per.nombre as 'personaje', per.foto as 'foto' from personajes as per inner join usuarios as usu on per.autor = usu.id order by per.id_per DESC";
   $resultado = $conexion->query($statement);
 
   $Bdetodo = mysqli_num_rows($resultado);
   $paginas = ceil($Bdetodo/7);
 
   $inicio = ($_GET['pagina']-1)*7;
-  $statement_shido = "SELECT per.id_per as 'id_per', usu.nombre as 'autor', per.nombre as 'personaje', per.foto as 'foto' from personajes as per inner join usuarios as usu on per.autor = usu.id order by per.id_per DESC LIMIT ".$inicio.",7";
+  $statement_shido = "SELECT per.id_per as 'id_per', per.autor  as 'aut', usu.nombre as 'autor', per.nombre as 'personaje', per.foto as 'foto' from personajes as per inner join usuarios as usu on per.autor = usu.id order by per.id_per DESC LIMIT ".$inicio.",7";
   $resultado_shido = $conexion->query($statement_shido);
 
 
@@ -59,6 +59,7 @@ tr:nth-child(even) {
 <h2>Personajes Comunidad</h2>
 <a href="formulario_personaje.php">Crear personaje</a>
 <a href="cerrar.php">Cerrar sesion</a>
+<a href="listausuario.php">Tus personajes</a>
 
 <table style="width:100%">
 <table id="t01">
@@ -77,7 +78,14 @@ tr:nth-child(even) {
             } else{
               echo "<td>Imagen no disponible</td>";
             }
-         ?>
+         ?> 
+         <?php echo '<td>
+           <form action="visualizacion.php" method="POST">
+             <input type="hidden" name="idper" value="'.$fila['id_per'].'">
+             <input type="hidden" name="aut" value="'.$fila['aut'].'">
+              <button type="button" onclick="submit()">Wachar</button>
+           </form>
+         </td>'; ?>
       </tr>
    <?php endforeach?>
 </table>
