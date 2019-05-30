@@ -1,8 +1,18 @@
 <?php 
   include("valida.php");
 
-  $idper = $_SESSION['idper'];
-  $iduser = $_SESSION['id'];
+  //echo $_POST['idper'];
+  if(empty($_POST['idper'])){
+    $idper = $_SESSION['idper'];
+  }else{
+    $idper = $_POST['idper'];
+  }
+  //echo $_POST['aut'];
+  if(empty($_POST['aut'])){
+    $iduser = $_SESSION['id'];
+  }else{
+    $iduser = $_POST['aut'];
+  }
 
 
   $conexion = mysqli_connect('localhost', 'root', '','gsp');
@@ -13,7 +23,7 @@
   }
 
   mysqli_select_db($conexion,'gsp') or die("No se encuentra la DB");
-  $statement = "SELECT * FROM personajes as per WHERE id_per = ".$idper." && autor = ".$iduser;
+  $statement = "SELECT  * FROM personajes as per WHERE id_per = ".$idper." && autor = ".$iduser;
   $resultado = mysqli_query($conexion,$statement);
   while ($fila=mysqli_fetch_array($resultado)) {
     $id_per=$fila["id_per"];
@@ -50,7 +60,12 @@ table#t01 {
 </style>
 </head>
 <body>
-<h2><Nombre del personaje></h2>
+<!--h2>Nombre del personaje</h2-->
+
+
+<a href="formulario_personaje.php">Crear personaje</a>
+<a href="listausuario.php">Tus personajes</a>
+<a href="listacomunidad.php">Los más recientes</a>
 
 <table style="width:100%">
 <table id="t01">

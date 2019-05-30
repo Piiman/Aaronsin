@@ -8,11 +8,16 @@
   }
   mysqli_select_db($conexion,'gsp') or die("No se encuentra la DB");
   //$statement = "SELECT * FROM (SELECT * FROM personajes ORDER BY id_per DESC LIMIT 10)Var1 ORDER BY id_per DES";
-  $statement = "SELECT per.id_per as 'id_per', usu.nombre as 'autor', per.nombre as 'personaje', per.descripcion as 'desc' , per.foto as 'foto' from personajes as per inner join usuarios as usu on per.autor = usu.id order by 'id_per' DESC";
-  $resultado = mysqli_query($conexion,$statement);
+  $statement = "SELECT per.id_per as 'id_per', per.autor  as 'aut', usu.nombre as 'autor', per.nombre as 'personaje', per.foto as 'foto' from personajes as per inner join usuarios as usu on per.autor = usu.id order by per.id_per DESC";
+  $resultado = $conexion->query($statement);
 
   $Bdetodo = mysqli_num_rows($resultado);
-  $paginas = ceil($Bdetodo/10);
+  $paginas = ceil($Bdetodo/7);
+
+  $inicio = ($_GET['pagina']-1)*7;
+  $statement_shido = "SELECT per.id_per as 'id_per', per.autor  as 'aut', usu.nombre as 'autor', per.nombre as 'personaje', per.foto as 'foto' from personajes as per inner join usuarios as usu on per.autor = usu.id order by per.id_per DESC LIMIT ".$inicio.",7";
+  $resultado_shido = $conexion->query($statement_shido);
+
 
   //$linea = mysqli_fetch_array($resultado);
  ?>
@@ -39,13 +44,20 @@ table#t01 {
 }
 tr:nth-child(even) {
   background-color: #c9d1e2;
-
+}
 </style>
 </head>
-<body>
 <body style="background: #ffc94c;">
 <h2 style="font-family:AR CENA;">Personajes Comunidad</h2>
+<?php
+  if (!$_GET) {
+    header('Location:listacomunidad.php?pagina=1');
+  }
+ ?>
 
+<a href="formulario_personaje.php">Crear personaje</a>
+<a href="cerrar.php">Cerrar sesion</a>
+<a href="listausuario.php">Tus personajes</a>
 
 <table style="width:100%">
 <table id="t01">
@@ -54,7 +66,7 @@ tr:nth-child(even) {
     <th style="font-family:AR ESSENCE;">Autor</th>
     <th style="font-family:AR ESSENCE;">Imagen</th>
   </tr>
-  <?php foreach ($resultado as $fila) :?>
+  <?php foreach ($resultado_shido as $fila): ?>
       <tr>
         <td style="font-family:Segoe Print;"><?php echo $fila['personaje']; ?></td>
         <td style="font-family:Segoe Print;"><?php echo $fila['autor']; ?></td>
@@ -65,21 +77,31 @@ tr:nth-child(even) {
               echo "<td>Imagen no disponible</td>";
             }
          ?>
+         <?php echo '<td>
+           <form action="visualizacion.php" method="POST">
+             <input type="hidden" name="idper" value="'.$fila['id_per'].'">
+             <input type="hidden" name="aut" value="'.$fila['aut'].'">
+              <button type="button" onclick="submit()">Wachar</button>
+           </form>
+         </td>'; ?>
       </tr>
    <?php endforeach?>
 </table>
 
 <nav aria-label="Page navigation example">
   <ul class="pagination">
-    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+    <li class="page-item <?php echo $_GET['pagina']<=1 ? 'disabled':'' ?>"><a class="page-link" href="listacomunidad.php?pagina=<?php echo $_GET['pagina']-1 ?>">Anterior</a></li>
     <?php for ($i=1; $i <= $paginas; $i++): ?>
     <li class="page-item">
       <a class="page-link" href="#">
           <?php echo $i; ?>
+    <li class="page-item <?php echo $_GET['pagina']==$i ? 'active':'' ?>">
+      <a class="page-link" href="listacomunidad.php?pagina=<?php echo $i ?>">
+          <?php echo $i; ?>
       </a>
     </li>
     <?php endfor ?>
-    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+    <li class="page-item <?php echo $_GET['pagina']>=$paginas ? 'disabled':'' ?>"><a class="page-link" href="listacomunidad.php?pagina=<?php echo $_GET['pagina']+1 ?>">Siguiente</a></li>
   </ul>
 </nav>
 
