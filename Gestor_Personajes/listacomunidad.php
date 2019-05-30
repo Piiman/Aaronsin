@@ -1,4 +1,4 @@
-<?php 
+<?php
 
   $conexion = mysqli_connect('localhost', 'root', '','gsp');
 
@@ -34,31 +34,31 @@ th, td {
   text-align: left;
 }
 table#t01 {
-  width: 100%;    
-  background-color: #f1f1c1;
+  width: 100%;
+  background-color: #a7bae5;
 }
 tr:nth-child(even) {
-  background-color: #EBEB9A;
+  background-color: #c9d1e2;
 
 </style>
 </head>
 <body>
-
-<h2>Personajes Comunidad</h2>
+<body style="background: #ffc94c;">
+<h2 style="font-family:AR CENA;">Personajes Comunidad</h2>
 
 
 <table style="width:100%">
 <table id="t01">
   <tr>
-    <th>Nombre</th>
-    <th>Autor</th> 
-    <th>Imagen</th>
+    <th style="font-family:AR ESSENCE;">Nombre</th>
+    <th style="font-family:AR ESSENCE;">Autor</th>
+    <th style="font-family:AR ESSENCE;">Imagen</th>
   </tr>
   <?php foreach ($resultado as $fila) :?>
       <tr>
-        <td><?php echo $fila['personaje']; ?></td>
-        <td><?php echo $fila['autor']; ?></td>
-        <?php 
+        <td style="font-family:Segoe Print;"><?php echo $fila['personaje']; ?></td>
+        <td style="font-family:Segoe Print;"><?php echo $fila['autor']; ?></td>
+        <?php
           if ($fila["foto"]!=null) {
            echo "<td><img src='data:image/jpeg; base64,". base64_encode($fila["foto"]). " '></td>";
             } else{
@@ -75,9 +75,9 @@ tr:nth-child(even) {
     <?php for ($i=1; $i <= $paginas; $i++): ?>
     <li class="page-item">
       <a class="page-link" href="#">
-          <?php echo $i; ?> 
+          <?php echo $i; ?>
       </a>
-    </li>  
+    </li>
     <?php endfor ?>
     <li class="page-item"><a class="page-link" href="#">Next</a></li>
   </ul>

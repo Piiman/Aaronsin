@@ -1,5 +1,4 @@
 # Sistemas de informacion 2019-II
-Beltran Penaflor Javier (Javo)
 Gonzalez Bustamante Aureo Benjamin (Jabon)
 Montes Cervantes Rodrigo (Chocorol)
 Palomar Castro Miguel Angel  (Mayan)

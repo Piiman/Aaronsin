@@ -1,4 +1,4 @@
-<?php
+﻿<?php
   include("valida.php");
   include("enviar_datos_personaje.php");
 ?>
@@ -13,20 +13,20 @@
   <link rel="stylesheet"  href="css/animate.css">
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="js/header.js"></script>
- 
+
 
 </head>
 
 <body>
   <header>
-        
+
          <div class="envol">
-         <div class="logo"> Gestor de Personajes </div>         
+         <div class="logo" style="font-family:AR ESSENCE;"> Gestor de Personajes </div>
           <nav>
           <!--a href="login.html">Inicia Sesión</a>
           <a href="registro_usuario.html">Regístrate</a-->
-          <a href="formulario_personaje.html">Crea / Edita</a>
-          <a href="Reporte.html">Reporta</a> 
+          <a href="formulario_personaje.html" style="font-family:Tempus Sans ITC;">Crea / Edita</a>
+          <a href="Reporte.html" style="font-family:Tempus Sans ITC;">Reporta</a>
           </nav>
         </div>
         </header>
@@ -36,7 +36,7 @@
   ?>
   <!--a href="cerrar.php">Cerrar Sesion</a-->
 
-<h1>Crea tu personaje</h1>
+<h1 style="font-family:AR ESSENCE;">Crea tu personaje</h1>
 <form enctype="multipart/form-data" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
 
   Nombre*:<br>
@@ -48,7 +48,7 @@
   Sube una imagen de tu personaje!
   <br><br><input name="img" type="file"/>
   <br><br>
-  <input type="submit" value="Guardar"/>
+  <input class="botoncin" type="submit" value="Guardar"/>
   <?php if(!empty($errores)): ?>
         <div>
           <ul>
